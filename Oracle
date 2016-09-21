@@ -1,0 +1,25 @@
+-- copy the snippet into sql developer and select the content and click on run script or teh play button 
+-- To view the DBMS output , INview there is an option for DBMS output
+set serveroutput on
+DECLARE
+message  varchar2(20):= 'Hello, World!';
+BEGIN
+dbms_output.put_line(message);
+END;
+
+
+-- Another snippet to insert if the record is not present.
+INSERT INTO table
+SELECT 'jonny', NULL
+  FROM dual -- Not Oracle? No need for dual, drop that line
+ WHERE NOT EXISTS (SELECT NULL -- canonical way, but you can select
+                               -- anything as EXISTS only checks existence
+                     FROM table
+                    WHERE name = 'jonny'
+                  )
+                
+                
+                
+-- Sample pl/SQL script
+
+
